@@ -34,14 +34,14 @@ import gnu.io.SerialPortEventListener;
 import gnu.io.UnsupportedCommOperationException;
 
 /**
- * ´®¿ÚÎŞÏßÎÂÊª¶ÈÉÏÎ»»ú
- * By:½­ºº´óÑ§ÎïÀíÓëĞÅÏ¢¹¤³ÌÑ§Ôº
- * @author ³Â¾«»ª
+ * ä¸²å£æ— çº¿æ¸©æ¹¿åº¦ä¸Šä½æœº
+ * By:æ±Ÿæ±‰å¤§å­¦ç‰©ç†ä¸ä¿¡æ¯å·¥ç¨‹å­¦é™¢
+ * @author é™ˆç²¾å
  */
 public class WenShiDu extends JFrame implements ActionListener, SerialPortEventListener {
 	
 	/**
-	 * ×Ô¶¯Éú³ÉserialVersionUID
+	 * è‡ªåŠ¨ç”ŸæˆserialVersionUID
 	 */
 	private static final long serialVersionUID = -6266266021599123514L;
 	int WIDTH = 400, HEIGHT = 300;
@@ -58,10 +58,10 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 	int receviedcount = 0;
 	
 	/**
-     * ¹¹Ôìº¯Êı
+     * æ„é€ å‡½æ•°
      */
 	public WenShiDu() {		
-		super("½­ºº´óÑ§ÎïĞÅÑ§ÔºÎÂÊª¶ÈÉÏÎ»»ú");
+		super("æ±Ÿæ±‰å¤§å­¦ç‰©ä¿¡å­¦é™¢æ¸©æ¹¿åº¦ä¸Šä½æœº");
 		setSize(WIDTH, HEIGHT);
 		setLocationRelativeTo(null);
 		Image icon = null;
@@ -83,26 +83,26 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 	}
 		
 	/**
-	 * ³õÊ¼»¯¸÷×é¼ş
+	 * åˆå§‹åŒ–å„ç»„ä»¶
 	 */
 	public void initComponents() {
-		//×ÖÌå
-		Font lbfont = new Font("Î¢ÈíÑÅºÚ", Font.TRUETYPE_FONT, 15);
-		Font btfont = new Font("ºÚÌå", Font.TRUETYPE_FONT, 11);
-		Font tffont = new Font("Î¢ÈíÑÅºÚ", Font.TRUETYPE_FONT, 12);
-		Font bigfont = new Font("Î¢ÈíÑÅºÚ", Font.TRUETYPE_FONT, 18);
+		//å­—ä½“
+		Font lbfont = new Font("å¾®è½¯é›…é»‘", Font.TRUETYPE_FONT, 15);
+		Font btfont = new Font("é»‘ä½“", Font.TRUETYPE_FONT, 11);
+		Font tffont = new Font("å¾®è½¯é›…é»‘", Font.TRUETYPE_FONT, 12);
+		Font bigfont = new Font("å¾®è½¯é›…é»‘", Font.TRUETYPE_FONT, 18);
 		
-		//±±Ãæ°å
+		//åŒ—é¢æ¿
 		JPanel pnnorth = new JPanel();
 		pnnorth.setLayout(new GridLayout(3, 5));
 
-		//¸÷Label
-		JLabel lbportname = new JLabel("´®¿ÚºÅ£º");
-		JLabel lbdatabits = new JLabel("Êı¾İÎ»£º");
-		JLabel lbpartitybits = new JLabel("¼ìÑéÎ»£º");
-		JLabel lbbaudrate = new JLabel("²¨ÌØÂÊ£º");
-		JLabel lbstopbits = new JLabel("Í£Ö¹Î»£º");
-		JLabel lbcurrentport = new JLabel("µ±Ç°´®¿Ú£º");
+		//å„Label
+		JLabel lbportname = new JLabel("ä¸²å£å·ï¼š");
+		JLabel lbdatabits = new JLabel("æ•°æ®ä½ï¼š");
+		JLabel lbpartitybits = new JLabel("æ£€éªŒä½ï¼š");
+		JLabel lbbaudrate = new JLabel("æ³¢ç‰¹ç‡ï¼š");
+		JLabel lbstopbits = new JLabel("åœæ­¢ä½ï¼š");
+		JLabel lbcurrentport = new JLabel("å½“å‰ä¸²å£ï¼š");
 		lbportname.setFont(lbfont);
 		lbdatabits.setFont(lbfont);
 		lbpartitybits.setFont(lbfont);
@@ -115,7 +115,7 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 		lbbaudrate.setHorizontalAlignment(SwingConstants.CENTER);
 		lbstopbits.setHorizontalAlignment(SwingConstants.CENTER);
 		lbcurrentport.setHorizontalAlignment(SwingConstants.CENTER);
-		//¸÷ComboBox
+		//å„ComboBox
 		cbportname = new JComboBox<String>(portlist.toArray(new String[0]));
 		tfcurrentport = new JTextField();
 		tfcurrentport.setFont(tffont);
@@ -129,15 +129,15 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 		cbparitybits.setSelectedIndex(0);
 		cbbaudrate.setSelectedIndex(5);
 		cbstopbits.setSelectedIndex(0);
-		//¸÷Button
-		btsearch = new JButton("É¨Ãè¶Ë¿Ú");
-		btopen = new JButton("´ò¿ª¶Ë¿Ú");
-		btclose = new JButton("¹Ø±Õ¶Ë¿Ú");
+		//å„Button
+		btsearch = new JButton("æ‰«æç«¯å£");
+		btopen = new JButton("æ‰“å¼€ç«¯å£");
+		btclose = new JButton("å…³é—­ç«¯å£");
 		btsearch.setFont(btfont);
 		btopen.setFont(btfont);
 		btclose.setFont(btfont);
 		
-		//½«¸÷×é¼şÌí¼Óµ½±±Ãæ°åÖĞ
+		//å°†å„ç»„ä»¶æ·»åŠ åˆ°åŒ—é¢æ¿ä¸­
 		pnnorth.add(lbportname);
 		pnnorth.add(cbportname);
 		pnnorth.add(lbbaudrate);
@@ -154,26 +154,26 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 		pnnorth.add(tfcurrentport);
 		pnnorth.add(btclose);
 		
-		//ÖĞÃæ°å
+		//ä¸­é¢æ¿
 		JPanel pncenter = new JPanel();
 		pncenter.setLayout(new GridLayout(4, 7));
 
-		JLabel lb11 = new JLabel("µã1:");
-		JLabel lb21 = new JLabel("µã2:");
-		JLabel lb31 = new JLabel("µã3:");
-		JLabel lb41 = new JLabel("µã4:");
-		JLabel lb12 = new JLabel("ÎÂ¶È£º");
-		JLabel lb22 = new JLabel("ÎÂ¶È£º");
-		JLabel lb32 = new JLabel("ÎÂ¶È£º");
-		JLabel lb42 = new JLabel("ÎÂ¶È£º");
-		JLabel lb14 = new JLabel("¡æ");
-		JLabel lb24 = new JLabel("¡æ");
-		JLabel lb34 = new JLabel("¡æ");
-		JLabel lb44 = new JLabel("¡æ");		
-		JLabel lb15 = new JLabel("Êª¶È£º");
-		JLabel lb25 = new JLabel("Êª¶È£º");
-		JLabel lb35 = new JLabel("Êª¶È£º");
-		JLabel lb45 = new JLabel("Êª¶È£º");		
+		JLabel lb11 = new JLabel("ç‚¹1:");
+		JLabel lb21 = new JLabel("ç‚¹2:");
+		JLabel lb31 = new JLabel("ç‚¹3:");
+		JLabel lb41 = new JLabel("ç‚¹4:");
+		JLabel lb12 = new JLabel("æ¸©åº¦ï¼š");
+		JLabel lb22 = new JLabel("æ¸©åº¦ï¼š");
+		JLabel lb32 = new JLabel("æ¸©åº¦ï¼š");
+		JLabel lb42 = new JLabel("æ¸©åº¦ï¼š");
+		JLabel lb14 = new JLabel("â„ƒ");
+		JLabel lb24 = new JLabel("â„ƒ");
+		JLabel lb34 = new JLabel("â„ƒ");
+		JLabel lb44 = new JLabel("â„ƒ");		
+		JLabel lb15 = new JLabel("æ¹¿åº¦ï¼š");
+		JLabel lb25 = new JLabel("æ¹¿åº¦ï¼š");
+		JLabel lb35 = new JLabel("æ¹¿åº¦ï¼š");
+		JLabel lb45 = new JLabel("æ¹¿åº¦ï¼š");		
 		JLabel lb17 = new JLabel("%");
 		JLabel lb27 = new JLabel("%");
 		JLabel lb37 = new JLabel("%");
@@ -255,22 +255,6 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 		tf36.setHorizontalAlignment(4);
 		tf46.setHorizontalAlignment(4);
 		
-		
-		
-//		lbwendu.setFont(bigfont);
-//		lbsheshidu.setFont(bigfont);
-//		lbshidu.setFont(bigfont);
-//		lbbaifenhao.setFont(bigfont);
-//		lbwendu.setHorizontalAlignment(SwingConstants.RIGHT);
-//		lbshidu.setHorizontalAlignment(SwingConstants.RIGHT);
-//		lbsheshidu.setHorizontalAlignment(SwingConstants.CENTER);
-//		lbbaifenhao.setHorizontalAlignment(SwingConstants.CENTER);
-//		tfwendu.setHorizontalAlignment(4);
-//		tfshidu.setHorizontalAlignment(4);
-//		tfwendu.setFont(bigfont);
-//		tfshidu.setFont(bigfont);
-
-		
 		pncenter.add(lb11);
 		pncenter.add(lb12);
 		pncenter.add(tf13);
@@ -301,11 +285,11 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 		pncenter.add(lb47);
 		
 		
-		//×´Ì¬À¸
+		//çŠ¶æ€æ 
 		lbstatusbar = new JLabel();
 		lbstatusbar.setOpaque(true);
 		
-		//»ñÈ¡Ö÷´°ÌåµÄÈİÆ÷,²¢½«ÒÔÉÏÈıÃæ°åÒÔ±±¡¢ÖĞ¡¢ÄÏµÄ²¼¾ÖÕûºÏ
+		//è·å–ä¸»çª—ä½“çš„å®¹å™¨,å¹¶å°†ä»¥ä¸Šä¸‰é¢æ¿ä»¥åŒ—ã€ä¸­ã€å—çš„å¸ƒå±€æ•´åˆ
 		JPanel pncontent = (JPanel)getContentPane();
 		pncontent.setLayout(new BorderLayout());
 		pncontent.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -313,7 +297,7 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 		pncontent.add(pncenter, BorderLayout.CENTER);
 		pncontent.add(lbstatusbar, BorderLayout.SOUTH);
 		
-		//Îª¸÷×é¼şÌí¼Ó¼àÌı
+		//ä¸ºå„ç»„ä»¶æ·»åŠ ç›‘å¬
 		cbportname.addActionListener(this);
 		cbdatabits.addActionListener(this);
 		cbparitybits.addActionListener(this);
@@ -325,7 +309,7 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 	}
 	
 	/**
-	 * É¨Ãè±¾»úµÄËùÓĞ´®¿Ú
+	 * æ‰«ææœ¬æœºçš„æ‰€æœ‰ä¸²å£
 	 */
 	public void scanSerialPorts() {
 		portlist = new ArrayList<String>();
@@ -339,34 +323,34 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 			}
 		}
 		if(null == portlist || portlist.isEmpty()) {
-			showErrorMsg("Î´ÕÒµ½¿ÉÓÃµÄ´®ĞĞ¶Ë¿Ú£¬³ÌĞò½«¹Ø±Õ£¡");
+			showErrorMsg("æœªæ‰¾åˆ°å¯ç”¨çš„ä¸²è¡Œç«¯å£ï¼Œç¨‹åºå°†å…³é—­ï¼");
 			System.exit(0);
 		}
 	}
 
 	/**
-	 * ´ò¿ªÑ¡¶¨µÄ´®¿Ú
+	 * æ‰“å¼€é€‰å®šçš„ä¸²å£
 	 */
 	public void openSerialPort() {
-		//¶¨ÒåÒ»¸öportid£¬¼´Òª´ò¿ªµÄ¶Ë¿Ú
+		//å®šä¹‰ä¸€ä¸ªportidï¼Œå³è¦æ‰“å¼€çš„ç«¯å£
 		try {
 			portid = CommPortIdentifier.getPortIdentifier(portname);
 		} catch (NoSuchPortException e) {
-			showErrorMsg("´ò¿ªÊ§°Ü");
+			showErrorMsg("æ‰“å¼€å¤±è´¥");
 			setComponentsEnable(true);
 			return;
 		}
 		
-		//´ò¿ª¶Ë¿Úportid
+		//æ‰“å¼€ç«¯å£portid
 		try {
 			serialport = (SerialPort)portid.open("WenShiDu", 2000);
 		} catch (PortInUseException e) {
-			showErrorMsg("´ò¿ªÊ§°Ü");
+			showErrorMsg("æ‰“å¼€å¤±è´¥");
 			setComponentsEnable(true);
 			return;
 		}
 	
-		//ÉèÖÃ´ò¿ªµÄ´®¿Ú²ÎÊı
+		//è®¾ç½®æ‰“å¼€çš„ä¸²å£å‚æ•°
 		int data = Integer.parseInt(this.databits);
 		int parity = cbparitybits.getSelectedIndex();
 		int stop = cbstopbits.getSelectedIndex()+1;
@@ -374,36 +358,36 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 		try {
 			serialport.setSerialPortParams(rate, data, stop, parity);
 		} catch (UnsupportedCommOperationException e) {
-			showErrorMsg("ÉèÖÃ´®¿Ú²ÎÊıÊ§°Ü");
+			showErrorMsg("è®¾ç½®ä¸²å£å‚æ•°å¤±è´¥");
 			setComponentsEnable(true);
 			return;
 		}
 		
-		//´ò¿ªÑ¡¶¨¶Ë¿ÚµÄÊäÈëÊä³öÁ÷
+		//æ‰“å¼€é€‰å®šç«¯å£çš„è¾“å…¥è¾“å‡ºæµ
 		try {
 			outputstream = serialport.getOutputStream();
 			inputstream = serialport.getInputStream();
 		} catch (IOException e) {
-			showErrorMsg("½ÓÊÕÊı¾İÒì³££¡");
+			showErrorMsg("æ¥æ”¶æ•°æ®å¼‚å¸¸ï¼");
 			return;
 		}
 		
-		//¸ø¶Ë¿ÚÌí¼Ó¼àÊÓ
+		//ç»™ç«¯å£æ·»åŠ ç›‘è§†
 		try {
 			serialport.addEventListener(this);
 		} catch (TooManyListenersException e) {
-			showErrorMsg("½ÓÊÕÊı¾İÒì³££¡");
+			showErrorMsg("æ¥æ”¶æ•°æ®å¼‚å¸¸ï¼");
 			return;
 		}
 		
-		//ÉèÖÃ¶Ë¿ÚÔÊĞí½ÓÊÕÊı¾İ
+		//è®¾ç½®ç«¯å£å…è®¸æ¥æ”¶æ•°æ®
 		serialport.notifyOnDataAvailable(true);
 		
-		lbstatusbar.setText("´ò¿ª¶Ë¿Ú"+portname+"³É¹¦");
+		lbstatusbar.setText("æ‰“å¼€ç«¯å£"+portname+"æˆåŠŸ");
 	}
 	
 	/**
-	 * ¹Ø±Õµ±Ç°´ò¿ªµÄ¶Ë¿Ú
+	 * å…³é—­å½“å‰æ‰“å¼€çš„ç«¯å£
 	 */
 	public void closeSerialPort() {	
 		try {
@@ -414,7 +398,7 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 			outputstream = null;
 			serialport = null;
 			receviedcount = 0;
-			lbstatusbar.setText("¹Ø±Õ¶Ë¿Ú"+portname+"³É¹¦");
+			lbstatusbar.setText("å…³é—­ç«¯å£"+portname+"æˆåŠŸ");
 			tf13.setText("");
 			tf23.setText("");
 			tf33.setText("");
@@ -429,7 +413,7 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 	}
 	
 	/**
-	 * ¸Ä±ä´®¿Ú²ÎÊı
+	 * æ”¹å˜ä¸²å£å‚æ•°
 	 */
 	public void setSerialPortsPara() {
 		portname = cbportname.getSelectedItem().toString();
@@ -440,26 +424,26 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 	}
 	
 	/**
-	 * ¸Ä±ä×´Ì¬À¸ĞÅÏ¢
-	 * @return String - ×´Ì¬À¸ÉÏÏÔÊ¾µÄĞÅÏ¢
+	 * æ”¹å˜çŠ¶æ€æ ä¿¡æ¯
+	 * @return String - çŠ¶æ€æ ä¸Šæ˜¾ç¤ºçš„ä¿¡æ¯
 	 */
 	public String setStatusBarPara() {
-		StringBuffer strbuff = new StringBuffer("µ±Ç°´®¿Ú:");
+		StringBuffer strbuff = new StringBuffer("å½“å‰ä¸²å£:");
 		strbuff.append(portname);
-		strbuff.append("£¬Êı¾İÎ»:");
+		strbuff.append("ï¼Œæ•°æ®ä½:");
 		strbuff.append(databits);
-		strbuff.append("£¬Í£Ö¹Î»:");
+		strbuff.append("ï¼Œåœæ­¢ä½:");
 		strbuff.append(stopbits);
-		strbuff.append("£¬Ğ£ÑéÎ»:");
+		strbuff.append("ï¼Œæ ¡éªŒä½:");
 		strbuff.append(paritybits);
-		strbuff.append("£¬²¨ÌØÂÊ:");
+		strbuff.append("ï¼Œæ³¢ç‰¹ç‡:");
 		strbuff.append(buadrate);
 		return strbuff.toString();
 	}
 
 	/**
-	 * ¸Ä±ä×é¼şÊÇ·ñEnable
-	 * @param able ÊÇ·ñÊ¹ÄÜ
+	 * æ”¹å˜ç»„ä»¶æ˜¯å¦Enable
+	 * @param able æ˜¯å¦ä½¿èƒ½
 	 */
 	public void setComponentsEnable(boolean abled) {
 		cbportname.setEnabled(abled);
@@ -473,8 +457,8 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 	}
 	
 	/**
-	 * ½çÃæ×é¼ş¶¯×÷¼àÌı
-	 * @param e ½çÃæ¶¯×÷ActionEvent
+	 * ç•Œé¢ç»„ä»¶åŠ¨ä½œç›‘å¬
+	 * @param e ç•Œé¢åŠ¨ä½œActionEvent
 	 */
     @Override
 	public void actionPerformed(ActionEvent e) {
@@ -491,7 +475,7 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 			setSerialPortsPara();
 			scanSerialPorts();
 			lbstatusbar.setText(setStatusBarPara());
-			showErrorMsg("É¨ÃèÍê³É£¡¶Ë¿Ú"+portlist+"¿ÉÓÃ");
+			showErrorMsg("æ‰«æå®Œæˆï¼ç«¯å£"+portlist+"å¯ç”¨");
 		}
 		if(e.getSource() == btopen) {
 			setComponentsEnable(false);
@@ -504,8 +488,8 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 	}
 	
 	/**
-	 * ´®¿ÚÊÂ¼ş¼àÌı
-	 * @param e ´®¿ÚÊÂ¼şSerialPortEvent
+	 * ä¸²å£äº‹ä»¶ç›‘å¬
+	 * @param e ä¸²å£äº‹ä»¶SerialPortEvent
 	 */
     @Override
 	public void serialEvent(SerialPortEvent e) {
@@ -520,10 +504,10 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 								.replaceFirst("^-0*", "-").replaceFirst("^-\\.", "-0.")
 								.replaceFirst("^0*", "").replaceFirst("^\\.", "0.");
 						if(str.substring(0, str.indexOf(",")).equals("FFFFF"))
-							wendu = "ÀëÏß";
+							wendu = "ç¦»çº¿";
 						String shidu = str.substring(str.indexOf(",")+1,str.indexOf(":")).replaceFirst("^0*", "");
 						if(str.substring(str.indexOf(",")+1,str.indexOf(":")).equals("FF"))
-							shidu = "ÀëÏß";
+							shidu = "ç¦»çº¿";
 						String spotNo = str.substring(str.indexOf(":")+1,str.length());
 						int no = Integer.parseInt(spotNo);
 						switch (no) {
@@ -550,7 +534,7 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 							default:break;
 						}
 						receviedcount++;
-						lbstatusbar.setText("½ÓÊÕ: "+receviedcount);
+						lbstatusbar.setText("æ¥æ”¶: "+receviedcount);
 					}
 				} catch (IOException e1) {
 					e1.printStackTrace();
@@ -561,16 +545,16 @@ public class WenShiDu extends JFrame implements ActionListener, SerialPortEventL
 	}
 	
 	/**
-	 * ÏÔÊ¾´íÎóĞÅÏ¢
-	 * @param msg ´íÎóĞÅÏ¢
+	 * æ˜¾ç¤ºé”™è¯¯ä¿¡æ¯
+	 * @param msg é”™è¯¯ä¿¡æ¯
 	 */
 	public void showErrorMsg(String msg) {
 		JOptionPane.showMessageDialog(this, msg);
 	}
 
 	/**
-	 * Ö÷º¯Êı£¬³ÌĞòÈë¿Ú
-	 * @param args Ö÷º¯Êı²ÎÊı
+	 * ä¸»å‡½æ•°ï¼Œç¨‹åºå…¥å£
+	 * @param args ä¸»å‡½æ•°å‚æ•°
 	 */
 	public static void main(String[] args) {
 		new WenShiDu();
